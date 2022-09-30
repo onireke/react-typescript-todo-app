@@ -1,14 +1,15 @@
 import React from "react";
-import Todo from "./Todo";
-const Todos: React.FC<{ items: string[] }> = (props) => {
+
+import TodoItem from "./TodoItem";
+import Todo from "../data/todo";
+
+const Todos: React.FC<{ items: Todo[] }> = (props) => {
   return (
-    <div>
-      <ul>
-        {props.items.map((item) => (
-          <Todo key={item} item={item} />
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {props.items.map((item) => (
+        <TodoItem key={item.id} text={item.text} />
+      ))}
+    </ul>
   );
 };
 
